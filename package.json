@@ -1,0 +1,14 @@
+{
+  "name": "huella-digital-greenit",
+  "private": true,
+  "workspaces": [
+    "api",
+    "web"
+  ],
+  "scripts": {
+    "build": "npm --workspace web run build && node scripts/copy-web-to-api.js",
+    "start": "npm --workspace api run start",
+    "dev": "node scripts/dev-banner.js",
+    "format:help": "node scripts/format-help.js"
+  }
+}
