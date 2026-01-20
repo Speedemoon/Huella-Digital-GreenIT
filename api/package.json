@@ -4,7 +4,7 @@
   "main": "index.js",
   "type": "commonjs",
   "scripts": {
-    "start": "node index.js",
+    "start": "node init-db.js && node index.js",
     "dev": "node index.js",
     "db:init": "node init-db.js"
   },

@@ -206,12 +206,32 @@ import { RouterLink } from '@angular/router';
     `
   ]
 })
-export class HomeComponent {
+export class HomeComponent implements OnInit {
   // Video placeholder (you'll drop the mp4 here later)
   videoSrc = 'assets/video/huella-sora.mp4';
   videoError = signal(false);
 
   // DB banner: we keep it "pending" until Railway is connected
+  constructor(private http: HttpClient) {}
+
+  ngOnInit(): void {
+    this.checkDb();
+  }
+
+  private checkDb() {
+    this.http.get<any>('/api/health').subscribe({
+      next: (res) => {
+        const ok = !!res?.ok && res?.db === 'up';
+        this.dbWarn.set(!ok);
+        this.dbText.set(ok ? 'Conectado ✅ (Postgres en Railway)' : 'Fallo conexión (revisa DATABASE_URL)');
+      },
+      error: () => {
+        this.dbWarn.set(true);
+        this.dbText.set('Pendiente (se conectará en Railway)');
+      }
+    });
+  }
+
   dbWarn = signal(true);
   dbText = signal('Pendiente (se conectará en Railway)');
 
