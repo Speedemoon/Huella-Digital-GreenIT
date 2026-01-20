@@ -72,8 +72,6 @@ import { RouterLink } from '@angular/router';
           <div>
             <h2>Video de presentación</h2>
             <p class="muted">
-              Aquí irá tu video generado (Sora). Solo coloca el archivo en
-              <code>web/src/assets/video/huella-sora.mp4</code> y se mostrará automáticamente.
             </p>
           </div>
           <a class="btn" routerLink="/calculadora">Probar calculadora</a>
