@@ -1,6 +1,7 @@
-import { Component, signal } from '@angular/core';
+import { Component, signal, OnInit } from '@angular/core';
 import { NgIf } from '@angular/common';
 import { RouterLink } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-home',
@@ -71,8 +72,6 @@ import { RouterLink } from '@angular/router';
         <div class="video-head">
           <div>
             <h2>Video de presentación</h2>
-            <p class="muted">
-            </p>
           </div>
           <a class="btn" routerLink="/calculadora">Probar calculadora</a>
         </div>
